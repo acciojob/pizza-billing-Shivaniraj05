@@ -4,7 +4,7 @@ public class Pizza {
 
     private int price;
     private Boolean isVeg;
-    //private String bill;
+    private String bill;
     private int extraCheesePrice=80;
     private int extraVegToppingsPrice=70;
     private int extraNonVegToppingsPrice=120;
@@ -15,8 +15,8 @@ public class Pizza {
     private boolean isExtraCheeseAdded=false;
     private boolean isExtraToppingsAdded=false;
     private boolean isTakeAway=false;
-    private int toppingsPrice;
 
+    private int toppingsPrice;
 
 
     public Pizza(Boolean isVeg){
@@ -29,6 +29,7 @@ public class Pizza {
             this.price=nonVegBasePrice;
         }
         basePizzaPrice=this.price;
+
     }
 
     public int getPrice(){
@@ -40,6 +41,7 @@ public class Pizza {
         isExtraCheeseAdded=true;
         // your code goes here
         this.price+=extraCheesePrice;
+
     }
 
     public void addExtraToppings(){
@@ -51,7 +53,7 @@ public class Pizza {
         }
         else{
             this.price+=extraNonVegToppingsPrice;
-            toppingsPrice=extraVegToppingsPrice;
+            toppingsPrice=extraNonVegToppingsPrice;
         }
     }
 
@@ -59,25 +61,23 @@ public class Pizza {
         isTakeAway=true;
         // your code goes here
         this.price+=bagPrice;
+
     }
 
-    public void getBill() {
+    public String getBill() {
         // your code goes here
-        String bill = "";
         System.out.println("Base Price Of The Pizza: " + basePizzaPrice);
-
-        if (isExtraCheeseAdded) {
-            bill += "Extra Cheese Added: " + extraCheesePrice + "\n";
+        if(isExtraCheeseAdded){
+            System.out.println("Extra Cheese Added: " + extraCheesePrice );
         }
-        if (isExtraToppingsAdded) {
-            bill += "Extra Toppings Added: " + toppingsPrice + "\n";
+        if(isExtraToppingsAdded){
+            System.out.println("Extra Toppings Added: " + toppingsPrice);
         }
-
-        if (isTakeAway) {
-            bill += "Paperbag Added: " + bagPrice + "\n";
+        if(isTakeAway) {
+            System.out.println("Paperbag Added: " + bagPrice);
         }
-        bill += "Total Price: " + this.price + "\n";
-        System.out.println(bill);
+        this.bill= String.valueOf(this.price);
+        return "Total Price: "+ bill+"\n";
     }
 }
 
