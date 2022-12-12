@@ -5,13 +5,12 @@ public class DeluxePizza extends Pizza {
     public DeluxePizza(Boolean isVeg) {
         super(isVeg);
         // your code goes here
-        super.addExtraCheese();
-        super.addExtraToppings();
+        if (isVeg) {
+            this.extraCheesePrice = 80;
+            this.extraToppingsPrice = 70;
+        } else {
+            this.extraCheesePrice = 80;
+            this.extraToppingsPrice = 120;
+        }
     }
-
-    @Override
-    public void addExtraCheese() {}
-
-    @Override
-    public void addExtraToppings() {}
 }
